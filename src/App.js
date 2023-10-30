@@ -94,12 +94,15 @@ export default function App() {
           </p>
 
           <div className="buttons">
-            <button onClick={handlePrevious} id="previous">
-              Previous
-            </button>
-            <button onClick={handleNext} id="next">
-              Next
-            </button>
+            <Button bgColor="#7950f2" textColor="#fff" onClick={handlePrevious}>
+              previous
+              <span>👈</span>
+            </Button>
+
+            <Button bgColor="#7950f2" textColor="#fff" onClick={handleNext}>
+              next
+              <span>👉</span>
+            </Button>
           </div>
         </div>
       ) : (
@@ -111,3 +114,16 @@ export default function App() {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+function Button({ bgColor, textColor, onClick, children }) {
+  return (
+    <>
+      <button
+        style={{ backgroundColor: bgColor, color: textColor }}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    </>
+  );
+}
